@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{% block title %}Mano Fantastiškas Puslapis{% endblock %}</title>
+    <meta name="description" content="Gražiai animuotas puslapis su stilingu meniu ir pora">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <!-- FontAwesome (ikonėlės) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <style>
+      body {
+          background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      }
+      /* Papildomas meniu stilius */
+      .navbar {
+          transition: background-color 0.5s ease;
+      }
+      .navbar:hover {
+          background-color: rgba(0,0,0,0.1);
+      }
+      /* Pora (footer) */
+      footer {
+          background-color: #343a40;
+          color: #fff;
+          padding: 20px 0;
+      }
+      footer a {
+          color: #ffc107;
+          transition: color 0.3s ease;
+      }
+      footer a:hover {
+          color: #fff;
+      }
+    </style>
+</head>
+<body>
+    <!-- Animuotas meniu (Bootstrap navbar) -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light animate__animated animate__fadeInDown">
+        <a class="navbar-brand" href="#">Meniu</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent"
+          aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+    
+        <div class="collapse navbar-collapse" id="navbarContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Pagrindinis <span class="sr-only">(dabartinis)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Apie mus</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Paslaugos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Kontaktai</a>
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+              <input class="form-control mr-sm-2" type="search" placeholder="Paieška" aria-label="Search">
+              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Ieškoti</button>
+          </form>
+        </div>
+    </nav>
+    
+    <!-- Pagrindinis turinio blokas -->
+    <div class="container mt-4">
+        {% block turinys %}
+        <div class="animate__animated animate__fadeIn">
+          <h1>Sveiki atvykę į mūsų puslapį!</h1>
+          <p>Čia rasite daugybę įdomių animacijų ir stilingų sprendimų.</p>
+        </div>
+        {% endblock %}
+    </div>
+    
+    <!-- Animuota pora (footer) -->
+    <footer class="animate__animated animate__fadeInUp">
+        <div class="container text-center">
+            <p>&copy; 2025 Jūsų Įmonė. Visos teisės saugomos.</p>
+            <p>
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            </p>
+        </div>
+    </footer>
+    
+    <!-- JavaScript bibliotekos -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+    <!-- Papildomas JavaScript animacijoms -->
+    <script>
+      $(document).ready(function(){
+          // Pavyzdinė animacija: meniu "pagrindinio drebėjimo" efektas slinkant puslapiu
+          $(window).scroll(function(){
+              if ($(this).scrollTop() > 50) {
+                  $('.navbar').addClass('animate__headShake');
+              } else {
+                  $('.navbar').removeClass('animate__headShake');
+              }
+          });
+      });
+    </script>
+</body>
+</html>

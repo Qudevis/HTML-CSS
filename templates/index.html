@@ -1,11 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8" />
-    <title>title</title>
-    <link rel="stylesheet" type="text/css" href="stilius.css">
-</head>
-<body>
+{% extends "base.html" %}
+
+{%block title %}indeksas{%endblock%}
+
+{% block turinys %}
     <p class="pirmas">Labas, tai yra mano paragrafas</p>
     <p>Čia dar kažkoks tai paragaras, bet ne mano</p>    
     <p class="pirmas">Labas, tai yra mano paragrafas</p>
@@ -19,6 +16,4 @@
 
 {{slaptas}}
 
-<a href="{{ url_for('naujas_puslapis') }}">Nueikite I nauja puslapi</a>
-</body>
-</html>
+{% endblock %}
